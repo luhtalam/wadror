@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :beers
   resources :breweries
   # The priority is based upon order of creation: first created -> highest priority.
@@ -7,6 +8,12 @@ Rails.application.routes.draw do
   root 'breweries#index'
 
   resources :ratings, only: [:new, :create, :index, :destroy]
+
+  resource :session, only: [:new, :create, :destroy]
+
+  get 'signup', to: 'users#new'
+  get 'signin', to: 'sessions#new'
+  delete 'signout', to: 'sessions#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
