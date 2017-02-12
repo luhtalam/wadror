@@ -23,6 +23,8 @@ group :test do
   gem 'launchy'
 end
 
+gem 'simplecov', require: false
+
 gem 'rspec-its'
 
 gem 'bcrypt', '~> 3.1.7'
