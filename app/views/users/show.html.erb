@@ -7,17 +7,34 @@
 </p>
 
 <p>
-  Has made <%=pluralize(@user.ratings.count, 'rating')%>, average <%=@user.rating_average%>
+  Has made <%=pluralize(@user.ratings.count, 'rating')%>
 </p>
 
 <p>
-  <strong> Ratings: </strong>
-  <% @user.ratings.each do |rating| %>
-      <% if @user == current_user %>
-          <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-  <% end %>
+  Favorite beer: <%=@user.favorite_beer%>, <br>
+  Favorite beerstyle: <%=@user.favorite_style%>, <br>
+  Favorite brewery: <%=@user.favorite_brewery%>
 </p>
+
+<% if @user.ratings.any? %>
+    <p> Average rating: <%= @user.rating_average %></p>
+
+    <h3>ratings</h3>
+
+    <ul>
+      <% @user.ratings.each do |r| %>
+          <li>
+            <%= r %>
+            <% if @user == current_user %>
+                <%= link_to 'delete', r, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </li>
+      <% end %>
+    </ul>
+
+<% end %>
+
+
 
 <% if @user == current_user %>
 <%= link_to 'Edit', edit_user_path(@user) %> |

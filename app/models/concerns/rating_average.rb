@@ -3,7 +3,7 @@ module RatingAverage
 
   def rating_average
     return 0 if ratings.empty?
-    self.ratings.average(:score)
+    ratings.average(:score)
   end
 
 end

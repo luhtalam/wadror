@@ -1,6 +1,6 @@
 <h2>List of ratings</h2>
 
-<p> Number of Rating: <%= @ratings.count %> </p>
+<p> Number of ratings: <%= @ratings.count %> </p>
 
 <ul>
   <% @ratings.each do |rating| %>
@@ -8,4 +8,6 @@
   <% end %>
 </ul>
 
+<%if current_user %>
 <p><%= link_to "Add new rating", new_rating_path%></p>
+<% end %>
