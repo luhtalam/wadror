@@ -2,10 +2,9 @@ require 'rails_helper'
 
 describe "Breweries page" do
   it "should not have any before been created" do
-    visit breweries_path
-    expect(page).to have_content 'Listing breweries'
+    visit breweries_path   
+    expect(page).to have_content 'Listing Breweries'
     expect(page).to have_content 'Number of breweries: 0'
-
   end
 
   describe "when breweries exists" do
@@ -33,5 +32,5 @@ describe "Breweries page" do
       expect(page).to have_content "Established at 1897"
     end
 
-  end
+  end 
 end

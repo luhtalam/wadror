@@ -14,5 +14,4 @@ RSpec.describe Brewery, type: :model do
 
     expect(brewery).not_to be_valid
   end
-
 end

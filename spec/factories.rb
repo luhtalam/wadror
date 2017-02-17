@@ -22,5 +22,5 @@ FactoryGirl.define do
     name "anonymous"
     brewery
     style "Lager"
-  end
+  end  
 end
