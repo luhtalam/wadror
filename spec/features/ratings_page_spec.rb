@@ -28,7 +28,7 @@ describe "Rating" do
 
   describe "when several exist" do
     before :each do
-      create_beers_with_ratings(FactoryGirl.create(:brewery), "helles", user, 10, 7, 9)
+      create_beers_with_ratings(FactoryGirl.create(:brewery), FactoryGirl.create(:style), user, 10, 7, 9)
       visit ratings_path
     end
 

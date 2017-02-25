@@ -15,7 +15,7 @@ class MembershipsController < ApplicationController
   # GET /memberships/new
   def new
     @membership = Membership.new
-    @beer_clubs = BeerClub.all - current_user.beer_clubs
+    @beer_clubs = BeerClub.all - current_user.beer_clubs   
   end
 
   # GET /memberships/1/edit
@@ -31,7 +31,7 @@ class MembershipsController < ApplicationController
 
     respond_to do |format|
       if not current_user.beer_clubs.include?  @membership.beer_club and @membership.save
-        format.html { redirect_to @membership.beer_club, notice: "#{current_user.username}, welcome to the club!" }
+        format.html { redirect_to @membership.beer_club, notice: "#{@membership.user.username} welcome to club!" }
         format.json { render :show, status: :created, location: @membership }
       else
         @beer_clubs = BeerClub.all - current_user.beer_clubs 
@@ -60,7 +60,7 @@ class MembershipsController < ApplicationController
   def destroy
     @membership.destroy
     respond_to do |format|
-      format.html { redirect_to @membership.user, notice: "Membership in #{@membership.beer_club.name} ended." }
+      format.html { redirect_to @membership.user, notice: "Your membership #{@membership.beer_club.name} ended" }
       format.json { head :no_content }
     end
   end

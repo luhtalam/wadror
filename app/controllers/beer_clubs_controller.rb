@@ -11,12 +11,11 @@ class BeerClubsController < ApplicationController
   # GET /beer_clubs/1
   # GET /beer_clubs/1.json
   def show
-    if Membership.find_by(beer_club: @beer_club, user: current_user)
-      @membership = Membership.find_by(beer_club: @beer_club, user: current_user)
+    if current_user.is_member_of? @beer_club
+      @membership = current_user.memberships.find{ |m| m.beer_club == @beer_club }
     else
-    @membership = Membership.new
-    @membership.user = current_user
-    @membership.beer_club = @beer_club
+      @membership = Membership.new
+      @membership.beer_club = @beer_club      
     end
   end
 
