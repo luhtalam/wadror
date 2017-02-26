@@ -2,7 +2,7 @@
 
 <h1>Styles</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -19,3 +19,8 @@
     <% end %>
   </tbody>
 </table>
+
+<br>
+
+
+<%= link_to 'New style', new_style_path, class:'btn btn-primary' if current_user %>

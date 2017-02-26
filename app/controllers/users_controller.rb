@@ -61,6 +61,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def toggle_blocked
+    if current_user.admin
+    user = User.find(params[:id])
+    user.update_attribute :blocked, (not user.blocked)
+
+    new_status = user.blocked? ? "frozen": "reactivated"
+
+    redirect_to :back, notice: "Account #{new_status}"
+    else
+    redirect_to :back, notice: "You need signin with admin account"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
