@@ -47,6 +47,8 @@ group :development do
   gem 'rails_layout'
 end
 
+gem 'jquery-turbolinks'
+
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'

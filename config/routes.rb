@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :users do
     post 'toggle_blocked', on: :member
   end
+  get 'beerlist', to:'beers#list'
+  get 'brewerylist', to: 'breweries#list'
   get 'signup', to: 'users#new'
   get 'signin', to: 'sessions#new'
   delete 'signout', to: 'sessions#destroy'  
