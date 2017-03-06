@@ -49,11 +49,16 @@ end
 
 gem 'jquery-turbolinks'
 
+gem 'rack-mini-profiler'
+
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
   gem 'webmock'
+  gem 'selenium-webdriver', '2.53.4'
+  gem "chromedriver-helper"
+  gem 'database_cleaner'
 end
 
 gem 'simplecov', require: false
